@@ -149,6 +149,8 @@ func cmd_status(c *rpc.Client) {
 }
 
 func cmd_auto_complete(c *rpc.Client) {
+        var env gocode_env
+        env.get()
 	var args, reply int
 	var err error
 	args = 0
@@ -175,7 +177,7 @@ func cmd_auto_complete(c *rpc.Client) {
 //for acme
 
 	
-	write_candidates(client_auto_complete(c, src, fname, searchpos))
+	write_candidates(client_auto_complete(c, src, fname, searchpos, env))
 }
 
 func cmd_cursor_type_pkg(c *rpc.Client) {
